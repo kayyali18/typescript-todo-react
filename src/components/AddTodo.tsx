@@ -8,6 +8,7 @@ const AddTodo: React.FC<Props> = ({ saveTodo }) => {
   const [nameValue, setNameValue] = useState("");
   const [descValue, setDescValue] = useState("");
 
+  // Use Effect for re-rendering on Form input - watched for description and name of Todo
   useEffect(() => {}, [descValue, nameValue]);
 
   // Form submit handler
@@ -15,21 +16,16 @@ const AddTodo: React.FC<Props> = ({ saveTodo }) => {
     e.preventDefault();
     const form = e.target as any;
     const formData = Object.fromEntries(new FormData(form));
+
     saveTodo(e, formData);
   };
 
-  // Form input hanlder
-  const handleInput = (e: React.FormEvent) => {
-    const target = e.target as any;
-    // console.log(target);
-    target.name === "name"
-      ? setNameValue(target.value)
-      : setDescValue(target.value);
-  };
+  // Form input handler
+  const handleInput = ({ target: { value, name } }: React.BaseSyntheticEvent) =>
+    name === "name" ? setNameValue(value) : setDescValue(value);
 
-  const isDisabled = (): boolean => {
-    return nameValue && descValue ? false : true;
-  };
+  // Form submit button
+  const isDisabled = (): boolean => (nameValue && descValue ? false : true);
 
   return (
     <form onSubmit={handleSubmit} className="Form">
