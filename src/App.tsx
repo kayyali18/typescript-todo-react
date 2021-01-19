@@ -32,8 +32,11 @@ const App: React.FC = () => {
     console.log(status, data);
   };
 
-  const handleDeleteTodo = (id: string) => {
-    console.log("hey");
+  const handleDeleteTodo = async (id: string) => {
+    const todo: ITodo = todos.find((t) => t._id === id) as ITodo;
+    const res = await deleteTodo(todo);
+
+    setTodos(res.data.todos);
   };
 
   const handleUpdateTodo = (todo: ITodo) => {
