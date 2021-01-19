@@ -1,26 +1,18 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import TodoItem from "./components/TodoItem";
+import AddTodo from "./components/AddTodo";
+import "./App.css";
 
-function App() {
+import { getTodos, addTodo, deleteTodo, updateTodo } from "./API";
+
+const App: React.FC = () => {
+  const handleSaveTodo = (e: React.FormEvent, formData: ITodo): void => {};
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <main className="App">
+      <h1>My Todos</h1>
+      <AddTodo saveTodo={handleSaveTodo}></AddTodo>
+    </main>
   );
-}
-
+};
 export default App;
