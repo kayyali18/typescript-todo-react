@@ -66,6 +66,7 @@ export const deleteTodo = async (
 
     return deletedTodo;
   } catch (error) {
+    console.log(error);
     throw new Error(error);
   }
 };
