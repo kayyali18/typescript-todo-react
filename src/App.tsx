@@ -7,7 +7,10 @@ import { getTodos, addTodo, deleteTodo, updateTodo } from "./API";
 
 const App: React.FC = () => {
   const handleSaveTodo = (e: React.FormEvent, formData: ITodo): void => {
-    console.log(e, formData, "App");
+    // let savedTodo = await addTodo(formData);
+    addTodo(formData).then(({ status, data }) => {
+      console.log(status, data);
+    });
   };
 
   return (
