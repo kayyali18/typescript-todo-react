@@ -8,7 +8,7 @@ type Props = TodoProps & {
 const Todo: React.FC<Props> = ({ todo, updateTodo, deleteTodo }) => {
   const checkTodo: string = todo.status ? `line-through` : "";
   const buttonStatus: string = todo.status
-    ? "hide-button"
+    ? "Card--button__incomplete"
     : "Card--button__done";
 
   return (
@@ -22,7 +22,7 @@ const Todo: React.FC<Props> = ({ todo, updateTodo, deleteTodo }) => {
       {/* Buttons for manipulating card */}
       <div className="Card--button">
         <button className={buttonStatus} onClick={() => updateTodo(todo)}>
-          Complete
+          {todo.status ? "Incomplete" : "Complete"}
         </button>
         <button
           className="Card--button__delete"
