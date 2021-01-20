@@ -48,20 +48,29 @@ body {
 }
 
 .Card--button button {
-  background: #f5f6f7;
+  /* background: #f5f6f7; */
   padding: 0.4rem 1rem;
   border-radius: 20px;
   cursor: pointer;
 }
 
 .Card--button__delete {
-  border: 1px solid #ca0000;
-  color: #ca0000;
+  border: 1px solid #fff;
+  background: #ca0000;
+  color: #fff;
 }
 
 .Card--button__done {
-  border: 1px solid #00aa69;
-  color: #00aa69;
+  border: 1px solid #fff;
+  background: #00aa69;
+  color: #fff;
+  margin-right: 1rem;
+}
+
+.Card--button__incomplete {
+  border: 1px solid #fff;
+  background: darkorange;
+  color: #fff;
   margin-right: 1rem;
 }
 
@@ -90,10 +99,11 @@ body {
 }
 
 .Form label {
-  color: #00aa69;
+  color: #fff;
 }
 
 .Form button {
+  align-self: flex-end;
   background: #ff9900;
   color: #fff;
   padding: 0.5rem 1rem;
@@ -105,10 +115,6 @@ body {
 .line-through {
   text-decoration: line-through;
   color: #777 !important;
-}
-
-.hide-button {
-  display: none;
 }
 
 button:disabled {
