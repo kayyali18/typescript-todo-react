@@ -32,15 +32,17 @@ const App: React.FC = () => {
     console.log(status, data);
   };
 
-  const handleDeleteTodo = async (id: string) => {
+  const handleDeleteTodo = async (id: string): Promise<void> => {
     const todo: ITodo = todos.find((t) => t._id === id) as ITodo;
     const res = await deleteTodo(todo);
 
     setTodos(res.data.todos);
   };
 
-  const handleUpdateTodo = (todo: ITodo) => {
-    console.log("hey update");
+  const handleUpdateTodo = async (todo: ITodo): Promise<void> => {
+    const res = await updateTodo(todo);
+
+    setTodos(res.data.todos);
   };
 
   return (
