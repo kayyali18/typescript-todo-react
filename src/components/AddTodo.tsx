@@ -31,13 +31,14 @@ const AddTodo: React.FC<Props> = ({ saveTodo }) => {
     <form onSubmit={handleSubmit} className="Form">
       <h1>My Todos</h1>
       <div>
-        <input onInput={handleInput} type="text" name="name" />
-        <textarea
-          onInput={handleInput}
-          name="description"
-          cols={30}
-          rows={10}
-        ></textarea>
+        <div>
+          <label htmlFor="name">Name</label>
+          <input onInput={handleInput} type="text" name="name" />
+        </div>
+        <div>
+          <label htmlFor="description">Description</label>
+          <input onInput={handleInput} name="description"></input>
+        </div>
         <button type="submit" disabled={isDisabled() ? true : false}>
           Save Todo
         </button>
